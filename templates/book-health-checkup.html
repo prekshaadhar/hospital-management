@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Health Checkup - Aarogya Hospital</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f8ff;
+      margin: 0;
+      padding: 0;
+      color: #1a2b4c;
+    }
+
+    header {
+      background-color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .content {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      color: #1d3557;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #1d3557;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #457b9d;
+    }
+
+    .success-msg {
+      color: green;
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Aarogya Hospital
+  </header>
+
+  <div class="content">
+    <h2>Book a Health Checkup</h2>
+
+    {% if success %}
+      <div class="success-msg">✔️ Health checkup booked successfully!</div>
+    {% endif %}
+
+    <form method="POST" action="{{ url_for('book_health_checkup') }}">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="contact" required pattern="[0-9]{10}" />
+
+      <label for="address">Address</label>
+      <textarea id="address" name="address" rows="3" required placeholder="Your full address..."></textarea>
+
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" required min="0" max="120" />
+
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender" required>
+        <option value="">--Select Gender--</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="package">Health Checkup Package</label>
+      <select id="package" name="package" required>
+        <option value="">--Select Package--</option>
+        <option value="Basic">Basic Health Checkup</option>
+        <option value="Advanced">Advanced Health Checkup</option>
+        <option value="Executive">Executive Full Body Checkup</option>
+        <option value="Diabetic">Diabetic Profile</option>
+        <option value="Heart">Heart Checkup</option>
+      </select>
+
+      <label for="date">Preferred Checkup Date</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="time">Preferred Time</label>
+      <input type="time" id="time" name="time" required />
+
+      <button type="submit">Submit Health Checkup</button>
+    </form>
+  </div>
+</body>
+</html>
+
+

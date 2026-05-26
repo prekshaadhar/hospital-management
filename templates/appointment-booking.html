@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Appointment | Aarogya Hospital</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f5f8ff;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1d3557;
+    }
+
+    label {
+      font-weight: 500;
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #1d3557;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #457b9d;
+    }
+
+    .success-msg {
+      color: green;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .error-msg {
+      color: red;
+      text-align: center;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Book an Appointment</h2>
+
+    {% if success %}
+      <div class="success-msg">✔️ Appointment submitted successfully!</div>
+    {% endif %}
+
+    {% if error %}
+      <div class="error-msg">{{ error }}</div>
+    {% endif %}
+
+    <form method="POST" action="{{ url_for('appointment_booking') }}">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="contact" required pattern="[0-9]{10}" />
+
+      <label for="address">Address</label>
+      <textarea id="address" name="address" rows="3" required placeholder="Your full address..."></textarea>
+
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" min="0" max="120" required />
+
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender" required>
+        <option value="">--Select Gender--</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="department">Select Department</label>
+      <select id="department" name="department" required>
+        <option value="">--Choose a Specialty--</option>
+        <option value="Cardiology">Cardiology</option>
+        <option value="Neurology">Neurology</option>
+        <option value="Orthopedics">Orthopedics</option>
+        <option value="General Medicine">General Medicine</option>
+        <option value="Diagnostics">Diagnostics</option>
+      </select>
+
+      <label for="doctor_name">Preferred Doctor</label>
+<select id="doctor_name" name="doctor_name" required>
+  <option value="">--Select Doctor--</option>
+  <option value="Dr. Priya Mehta">Dr. Priya Mehta</option>
+  <option value="Dr. Arjun Rao">Dr. Arjun Rao</option>
+  <option value="Dr. Sneha Patil">Dr. Sneha Patil</option>
+  <option value="Dr. Rajeev Menon">Dr. Rajeev Menon</option>
+</select>
+
+      <label for="date">Appointment Date</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="time">Preferred Time</label>
+      <input type="time" id="time" name="time" required />
+
+      <label for="message">Additional Notes</label>
+      <textarea id="message" name="message" rows="4" placeholder="Mention symptoms or preferences..."></textarea>
+
+      <button type="submit">Submit Appointment</button>
+    </form>
+  </div>
+
+</body>
+</html>
+

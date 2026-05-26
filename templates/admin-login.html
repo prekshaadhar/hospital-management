@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login - Aarogya Hospital</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #004aad, #2c66d3);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      color: #fff;
+    }
+
+    header {
+      background-color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #004aad;
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #004aad;
+      font-weight: 500;
+    }
+
+    .login-container {
+      margin: auto;
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      width: 350px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      color: #1a2b4c;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin: 10px 0 6px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #004aad;
+      color: white;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #003580;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 20px;
+      color: #ccc;
+    }
+
+    .success-msg {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      text-align: center;
+      border: 1px solid #c3e6cb;
+    }
+
+    .error-msg {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      text-align: center;
+      border: 1px solid #f5c6cb;
+    }
+
+    .back-home {
+      color: white;
+      text-align: center;
+      margin-top: 20px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div><strong>AAROGYA HOSPITAL</strong></div>
+    <nav>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('medical_services') }}">Medical Services</a>
+      <a href="{{ url_for('contact') }}">Contact / Help</a>
+      <a href="#">Admin Login</a>
+    </nav>
+  </header>
+
+  <div class="login-container">
+    <h2>Admin Login</h2>
+
+    {% if error %}
+      <div class="error-msg">{{ error }}</div>
+    {% endif %}
+
+    <form action="{{ url_for('admin_login') }}" method="POST">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="footer">For authorized personnel only</div>
+  </div>
+
+  <div class="back-home">
+    <a href="{{ url_for('home') }}">← Back to Home</a>
+  </div>
+</body>
+</html>
+

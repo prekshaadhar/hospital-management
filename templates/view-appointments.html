@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Appointments - Aarogya Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>All Appointments</h2>
+    <table>
+        <tr>
+            <th>ID</th><th>Patient</th><th>Doctor</th><th>Date</th><th>Time</th>
+        </tr>
+        {% for appointment in appointments %}
+        <tr>
+            <td>{{ appointment.appointment_id }}</td>
+            <td>{{ appointment.name }}</td>
+            <td>{{ appointment.doctor_name }}</td>
+            <td>{{ appointment.appointment_date }}</td>
+            <td>{{ appointment.appointment_time }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+

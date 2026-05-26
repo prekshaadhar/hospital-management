@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard | Aarogya Hospital</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px;
+      background: linear-gradient(to right, #e0f7fa, #e3f2fd);
+      color: #333;
+    }
+    h1 {
+      color: #004aad;
+      margin-bottom: 30px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      max-width: 400px;
+    }
+    li {
+      margin: 15px 0;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+      background-color: #004aad;
+      padding: 12px 20px;
+      display: inline-block;
+      width: 100%;
+      border-radius: 8px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+    a:hover {
+      background-color: #00347d;
+    }
+  </style>
+</head>
+<body>
+<h1>Welcome, {{ admin }} | AAROGYA Admin Dashboard</h1>
+
+  <ul>
+    <li><a href="{{ url_for('view_patients') }}">View Patients</a></li>
+    <li><a href="{{ url_for('manage_doctors') }}">Manage Doctors</a></li>
+    <li><a href="{{ url_for('view_appointments') }}">View Appointments</a></li>
+    <li><a href="{{ url_for('billing_info') }}">Billing Info</a></li>
+    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+  </ul>
+</body>
+</html>
+

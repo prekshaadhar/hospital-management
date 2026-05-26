@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor Search Results - Aarogya Hospital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #fff;
+      color: #333;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .search-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      color: #2b6777;
+    }
+
+    .results-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .doctor-card {
+      padding: 1.5rem;
+      background-color: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .doctor-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .doctor-card h3 {
+      margin-top: 0;
+      color: #2b6777;
+    }
+
+    .doctor-card p {
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      text-align: center;
+      font-weight: 600;
+      color: #2b6777;
+      text-decoration: underline;
+    }
+
+    .footer {
+      background-color: #2b6777;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 4rem;
+    }
+
+    .footer p,
+    .footer h2 {
+      margin: 0.3rem 0;
+      font-weight: 400;
+    }
+
+    .footer h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .navbar {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      flex-wrap: wrap;
+    }
+
+    .logo-img {
+      max-height: 50px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      padding: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2b6777;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .no-results {
+      text-align: center;
+      font-style: italic;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='images/image.png') }}"
+           alt="Aarogya Hospital Logo"
+           class="logo-img">
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('medical_services') }}">Medical Services</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact / Help</a></li>
+      <li><a href="{{ url_for('admin_login') }}">Admin Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Search Results -->
+  <section class="search-section">
+    <div class="container">
+
+      <h2>Search Results for "{{ query }}"</h2>
+
+      {% if doctors %}
+
+        <ul class="results-list">
+
+          {% for doctor in doctors %}
+
+            <li class="doctor-card">
+
+              <h3>{{ doctor.name }}</h3>
+
+              <p>
+                <strong>Department:</strong>
+                {{ doctor.department }}
+              </p>
+
+              <p>
+                <strong>Specialization:</strong>
+                {{ doctor.specialization }}
+              </p>
+
+              <p>
+                <strong>Experience:</strong>
+                {{ doctor.experience }} years
+              </p>
+
+              <p>
+                <strong>Contact:</strong>
+                {{ doctor.contact }}
+              </p>
+
+            </li>
+
+          {% endfor %}
+
+        </ul>
+
+      {% else %}
+
+        <p class="no-results">
+          No doctors found matching your search.
+        </p>
+
+      {% endif %}
+
+      <div style="text-align:center;">
+        <a href="{{ url_for('home') }}" class="back-link">
+          ← Back to Home
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <h2>Contact Us</h2>
+
+    <p>
+      Email: support@aarogyahospital.com |
+      Phone: +91 9876543210
+    </p>
+
+    <p>
+      Address: 4th Block, Koramangala,
+      Main Road, Bangalore
+    </p>
+
+    <p>
+      &copy; 2026 Aarogya Hospital.
+      All rights reserved.
+    </p>
+  </footer>
+
+</body>
+</html>

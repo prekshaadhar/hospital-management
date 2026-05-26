@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Contact Aarogya Hospital for support, appointments, and medical assistance. Located in Koramangala, Bangalore.">
+  <title>Contact / Help - Aarogya Hospital</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #eef2f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #004aad;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      text-align: center;
+      color: #004aad;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .info {
+      margin-top: 20px;
+    }
+
+    .info strong {
+      display: inline-block;
+      width: 100px;
+    }
+
+    .info a {
+      color: #004aad;
+      text-decoration: none;
+    }
+
+    form {
+      margin-top: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #004aad;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00307a;
+    }
+
+    .success-message {
+      color: green;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>AAROGYA HOSPITAL</strong></div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/medical-services">Medical Services</a>
+      <a href="/contact">Contact / Help</a>
+      <a href="/admin-login">Admin Login</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Contact / Help</h2>
+    <p>If you have any questions or need assistance, feel free to reach out to us:</p>
+
+    <div class="info">
+      <p><strong>Phone:</strong> <a href="tel:+919876543210">+91-9876543210</a></p>
+      <p><strong>Email:</strong> <a href="mailto:support@aarogyahospital.in">support@aarogyahospital.in</a></p>
+      <p><strong>Address:</strong> Aarogya Hospital, 4th Block, Koramangala, Main Road, Bangalore, India</p>
+    </div>
+
+    <p>Our support team is available from 9 AM to 9 PM, Monday to Saturday.</p>
+
+    {% if success %}
+      <p class="success-message">✅ Message sent successfully. We'll get back to you soon.</p>
+    {% endif %}
+
+    <form method="POST" action="/submit-contact">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit number" required>
+
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" name="subject" placeholder="Brief subject" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Services - Aarogya Hospital</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f7fb;
+            margin:0;
+            padding:0;
+        }
+
+        .navbar{
+            background:#004aad;
+            padding:15px 40px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .navbar h1{
+            color:white;
+            margin:0;
+        }
+
+        .navbar a{
+            color:white;
+            text-decoration:none;
+            margin-left:20px;
+            font-weight:bold;
+        }
+
+        .container{
+            width:85%;
+            margin:auto;
+            padding:40px 0;
+        }
+
+        .heading{
+            text-align:center;
+            margin-bottom:40px;
+            color:#004aad;
+        }
+
+        .service{
+            background:white;
+            border-radius:12px;
+            padding:25px;
+            margin-bottom:25px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .service h3{
+            color:#004aad;
+            margin-bottom:10px;
+        }
+
+        .footer{
+            background:#004aad;
+            color:white;
+            text-align:center;
+            padding:15px;
+            margin-top:40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h1>AAROGYA HOSPITAL</h1>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="/medical-services">Medical Services</a>
+            <a href="/contact">Contact / Help</a>
+            <a href="/admin-login">Admin Login</a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <h1 class="heading">Our Medical Services</h1>
+
+        <div class="service">
+            <h3>General Medicine</h3>
+            <p>Comprehensive primary care and chronic disease management.</p>
+        </div>
+
+        <div class="service">
+            <h3>Cardiology</h3>
+            <p>Advanced heart care including diagnostics, treatment, and surgery.</p>
+        </div>
+
+        <div class="service">
+            <h3>Orthopedics</h3>
+            <p>Fracture treatment, joint replacement surgeries, and rehabilitation.</p>
+        </div>
+
+        <div class="service">
+            <h3>Gynecology & Obstetrics</h3>
+            <p>Women's health, pregnancy care, and family planning services.</p>
+        </div>
+
+        <div class="service">
+            <h3>Pediatrics</h3>
+            <p>Child health care from newborns to adolescents.</p>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2026 Aarogya Hospital. All Rights Reserved.
+    </div>
+
+</body>
+</html>
