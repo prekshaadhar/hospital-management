@@ -152,11 +152,12 @@
 
       <h2>Search Results for "{{ query }}"</h2>
 
-      {% if doctors %}
+      {% if results %}
 
         <ul class="results-list">
 
-          {% for doctor in doctors %}
+          
+          {% for doctor in results %}
 
             <li class="doctor-card">
 
