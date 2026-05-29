@@ -18,8 +18,10 @@ A hospital management web application built using Flask and MySQL.
 Import `database.sql` into MySQL, then:
 
 pip install -r requirements.txt
+
 python app.py
 
 ## Screenshots
 See the screenshots folder for complete documentation.
+
 ---
