@@ -4,15 +4,12 @@
   <meta charset="UTF-8">
   <title>Hospital Management System</title>
 
-  <!-- External CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- ✅ Success Alert -->
   {% if success %}
     <script>alert("Form submitted successfully!");</script>
   {% endif %}
@@ -23,7 +20,6 @@
     </div>
   {% endif %}
 
-  <!-- ✅ Navigation Bar -->
   <nav class="navbar">
     <div class="logo">
       <img src="{{ url_for('static', filename='images/image.png') }}" alt="Aarogya Hospital Logo" class="logo-img">
@@ -36,7 +32,6 @@
     </ul>
   </nav>
 
-  <!-- ✅ Hero Section with Background Video -->
   <header class="hero">
     <video autoplay muted loop class="bg-video">
       <source src="{{ url_for('static', filename='video/background.mp4') }}" type="video/mp4">
@@ -47,13 +42,11 @@
       <h1>Care You Can Trust</h1>
       <p>Search for doctors and specialties below</p>
 
-      <!-- ✅ Search Form -->
       <form action="{{ url_for('search') }}" method="POST" class="search-form">
         <input type="text" name="query" placeholder="Search for doctors or specialties..." class="search-box" required>
         <button type="submit" class="search-btn">Search</button>
       </form>
 
-      <!-- ✅ Action Buttons -->
       <div class="button-group">
         <a href="{{ url_for('appointment_booking') }}" class="hero-btn">Book Appointment</a>
         <a href="{{ url_for('find_hospital') }}" class="hero-btn">Find Hospital</a>
@@ -62,13 +55,11 @@
     </div>
   </header>
 
-  <!-- ✅ About Section -->
   <section class="about">
     <h2>About Us</h2>
     <p>At <strong>Aarogya Hospital</strong>, we provide compassionate and accessible healthcare services using modern facilities and expert professionals. Your well-being is our priority.</p>
   </section>
 
-  <!-- ✅ Specialties Section -->
   <section class="specialties">
     <h2>Our Specialties</h2>
     <div class="specialty-grid">
@@ -80,7 +71,6 @@
     </div>
   </section>
 
-  <!-- ✅ Why Choose Us Section -->
   <section class="why-choose">
     <h2>Why Choose Us</h2>
     <div class="features">
@@ -90,7 +80,6 @@
     </div>
   </section>
 
-  <!-- ✅ FAQs Section -->
   <section class="faq">
     <h2>FAQs</h2>
     <div class="faq-item">
@@ -107,7 +96,6 @@
     </div>
   </section>
 
-  <!-- ✅ Footer -->
   <footer class="footer">
     <h2>Contact Us</h2>
     <p>Email: support@aarogyahospital.com | Phone: +91 9876543210</p>
