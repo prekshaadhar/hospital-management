@@ -14,3 +14,8 @@ A hospital management web application built using Flask and MySQL.
 - MySQL
 - HTML
 - CSS
+
+## Screenshots
+See the screenshots folder for complete documentation.
+
+---
