@@ -1,13 +1,6 @@
--- =========================================================
--- AAROGYA HOSPITAL MANAGEMENT SYSTEM DATABASE
--- =========================================================
-
 CREATE DATABASE IF NOT EXISTS aarogya_hospital;
 USE aarogya_hospital;
 
--- =========================================================
--- 1. PATIENTS TABLE
--- =========================================================
 
 CREATE TABLE IF NOT EXISTS Patients (
     patient_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -21,9 +14,6 @@ CREATE TABLE IF NOT EXISTS Patients (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- =========================================================
--- 2. DOCTORS TABLE
--- =========================================================
 
 CREATE TABLE IF NOT EXISTS Doctors (
     doctor_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -35,9 +25,6 @@ CREATE TABLE IF NOT EXISTS Doctors (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- =========================================================
--- 3. APPOINTMENTS TABLE
--- =========================================================
 
 CREATE TABLE IF NOT EXISTS Appointments (
     appointment_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -52,10 +39,6 @@ CREATE TABLE IF NOT EXISTS Appointments (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- =========================================================
--- 4. HEALTH CHECKUPS TABLE
--- =========================================================
-
 CREATE TABLE IF NOT EXISTS HealthCheckups (
     checkup_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -69,9 +52,6 @@ CREATE TABLE IF NOT EXISTS HealthCheckups (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- =========================================================
--- 5. CONTACT MESSAGES TABLE
--- =========================================================
 
 CREATE TABLE IF NOT EXISTS ContactMessages (
     message_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -84,9 +64,6 @@ CREATE TABLE IF NOT EXISTS ContactMessages (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- =========================================================
--- 6. ADMINS TABLE
--- =========================================================
 
 CREATE TABLE IF NOT EXISTS Admins (
     admin_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -96,9 +73,6 @@ CREATE TABLE IF NOT EXISTS Admins (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- =========================================================
--- 7. DOCTOR AVAILABILITY TABLE
--- =========================================================
 
 CREATE TABLE IF NOT EXISTS DoctorAvailability (
     availability_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -109,13 +83,6 @@ CREATE TABLE IF NOT EXISTS DoctorAvailability (
     available_time_to TIME
 );
 
--- =========================================================
--- SAMPLE DATA
--- =========================================================
-
--- ======================
--- INSERT PATIENTS
--- ======================
 
 INSERT INTO Patients
 (name, email, phone, age, gender, address, message)
@@ -126,9 +93,6 @@ VALUES
 
 ('Sunil Joshi', 'sunil.joshi@example.com', '9876501234', 45, 'Male', 'Delhi', 'Heart follow-up consultation');
 
--- ======================
--- INSERT DOCTORS
--- ======================
 
 INSERT INTO Doctors
 (name, department, specialization, experience, contact)
@@ -153,9 +117,6 @@ VALUES
 
 ('Dr. Aman Kapoor', 'Pediatrics', 'Neonatology', 6, 'aman.kapoor@aarogyahospital.com');
 
--- ======================
--- INSERT APPOINTMENTS
--- ======================
 
 INSERT INTO Appointments
 (patient_name, patient_email, patient_phone, department, doctor_name, appointment_date, appointment_time, message)
@@ -164,9 +125,6 @@ VALUES
 
 ('Anjali Sharma', 'anjali.sharma@example.com', '9876541230', 'Neurology', 'Dr. Arjun Rao', '2025-04-12', '11:30:00', 'Migraine issue');
 
--- ======================
--- INSERT HEALTH CHECKUPS
--- ======================
 
 INSERT INTO HealthCheckups
 (name, age, gender, phone, email, package, preferred_date, preferred_time)
@@ -175,9 +133,6 @@ VALUES
 
 ('Anjali Sharma', 29, 'Female', '9876541230', 'anjali.sharma@example.com', 'Women Wellness Package', '2025-04-14', '11:00:00');
 
--- ======================
--- INSERT CONTACT MESSAGES
--- ======================
 
 INSERT INTO ContactMessages
 (name, email, phone, subject, message, status)
@@ -186,11 +141,7 @@ VALUES
 
 ('Rakesh Yadav', 'rakesh.yadav@example.com', '9876003344', 'Doctor Availability', 'Is Dr. Karan Malhotra available on Saturday?', 'read');
 
--- ======================
--- INSERT ADMIN
--- Password = #dablu_bablu
--- SHA256 HASH USED
--- ======================
+
 
 INSERT INTO Admins
 (username, password_hash, role)
@@ -201,9 +152,6 @@ VALUES
     'admin'
 );
 
--- ======================
--- INSERT DOCTOR AVAILABILITY
--- ======================
 
 INSERT INTO DoctorAvailability
 (doctor_name, department, available_day, available_time_from, available_time_to)
@@ -214,9 +162,6 @@ VALUES
 
 ('Dr. Sneha Patil', 'General Medicine', 'Wednesday', '08:00:00', '12:00:00');
 
--- =========================================================
--- VERIFY TABLES
--- =========================================================
 
 SHOW TABLES;
 
